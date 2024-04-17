@@ -12,6 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
 import './navbar.scss';
@@ -39,11 +40,13 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" style={{ background: 'black' }}>
+    <AppBar position="static" style={{ background: 'transparent' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-            <img id='logoLarge' src={logo.src} />
-            <Link id='logoText' href='/'>NEXT MEAL |</Link>
+            <Box sx={{ flexGrow: 1, display: { lg: 'flex', md: 'none' } }}>
+                <Image id='logoLarge' src={logo.src} alt='A plate with food on it' width={35} height={30} />
+                <Link id='logoText' href='/'>NEXT MEAL</Link>
+            </Box>
           
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -81,7 +84,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <img id='logoSmall' src={logo.src} />
+          <Image id='logoSmall' src={logo.src} alt='A plate with food on it' width={35} height={35} />
           <Typography
             variant="h5"
             noWrap
@@ -96,9 +99,9 @@ function ResponsiveAppBar() {
           >
             {/* NEXT MEAL */}
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             <Button variant="text"><Link href='/meals'>Meals</Link></Button>
-            <Button variant="text"><Link href='/meals/shared'>Share Meal</Link></Button>
+            {/* <Button variant="text"><Link href='/meals/shared'>Share Meal</Link></Button> */}
             <Button variant="text"><Link href='/community'>Community</Link></Button>
           </Box>
 

@@ -13,11 +13,14 @@
 #logoText {
     font-weight: 900;
     letter-spacing: .3rem;
-    // margin: 0 20px 0 0;
+    @include mq-tb {
+        display: none
+    }
 }
 #logoSmall {
-    width: 50px;
+    width: 35px;
     display: none;
+    margin: 0 20px;
     @include mq-tb {
         display: block;
     }
