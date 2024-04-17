@@ -1,0 +1,24 @@
+@import '../styles/_variables';
+@import '../styles/_mixins';
+
+#logoLarge {
+    width: 35px;
+    margin: 0 20px;
+    display: block;
+    @include mq-tb {
+        display: none
+    }
+}
+
+#logoText {
+    font-weight: 900;
+    letter-spacing: .3rem;
+    // margin: 0 20px 0 0;
+}
+#logoSmall {
+    width: 50px;
+    display: none;
+    @include mq-tb {
+        display: block;
+    }
+}
